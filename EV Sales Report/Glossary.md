@@ -1,4 +1,4 @@
-# EV Sales Analysis Power BI Dashboard
+# EV Sales Analysis
 
 ## Business Objective
 Analyze historical sales data of electric vehicle (EV) companies to generate actionable insights. These insights will assist businesses in identifying high-growth regions or states, enabling informed decisions on expansion strategies based on key metrics and market trends.
