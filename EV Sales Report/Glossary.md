@@ -16,11 +16,6 @@ This dashboard provides a comprehensive analysis of global electric vehicle (EV)
 - **Year-over-Year (YoY) Growth**: Highlighting performance trends over time.
 - **Top-Performing States & Manufacturers**: Showcase areas of success and potential growth.
 
-### Dynamic Filters:
-- **Compare Sales Performance**: Across different states and makers.
-- **Track Emerging Markets**: Analyze factors driving EV adoption.
-- **Understand the Automotive Industry's Evolution**: View the broader impact of EVs on the traditional automotive sector.
-
 ## Key Metrics & KPIs
 - **Units Sold (Volume)**: Total number of EVs sold.
 - **Revenue**: Sales revenue generated from EV sales.
