@@ -1,5 +1,47 @@
+Highlight Min Max Values
 min_max_revenue_monthly = 
 var maximum = MAXX(ALL(dim_date[month_name],dim_date[Month]),[revenue])
 var minimum = MINX(ALL(dim_date[month_name],dim_date[Month]),[revenue])
 var logic = if(maximum = [revenue], "Green", if(minimum = [revenue],"Red","#eedf98"))
 return logic
+
+min_max_revenue_weekly = 
+var maximum = MAXX(ALL(dim_date[Day Name]),[revenue])
+var minimum = MINX(ALL(dim_date[Day Name]),[revenue])
+var logic = if(maximum = [revenue], "Green", if(minimum = [revenue],"Red", "#eedf98"))
+return logic
+
+
+To find N days Moving Averages
+MA_revenue = 
+var interval = SELECTEDVALUE(MA_days[days])
+var rolling_3days = CALCULATE([revenue],DATESINPERIOD(dim_date[date],max(dim_date[date]),-(interval),DAY))
+var window = interval
+var result = rolling_3days/WINDOW
+return result
+
+
+To Find MoM changes
+MoM_avg_fare_km = 
+var cm_ = [avg_fare_per_km]
+var pm_ = [PM_avg_fare_km]
+var result = DIVIDE((cm_-pm_),pm_,BLANK())
+return result
+
+
+Passengers_label = 
+ var act_vs_target = if(sum(fact_passenger_summary[new_passengers]) > sum(fact_passenger_summary[target_new_passengers]), "Target Achieved 😎", "Not Achieved ☹️")
+return act_vs_target
+
+Revenue_contribution% = 
+var numo = [revenue]
+var deno = CALCULATE([revenue],ALL(dim_city))
+var result = DIVIDE(numo,deno,BLANK())
+return result
+
+dynamic titles
+title_paramter = SWITCH(TRUE(),
+SELECTEDVALUE(Parameter[Value4]) = "Revenue","Trend by Revenue",
+SELECTEDVALUE(Parameter[Value4]) = "Avg Trip Cost","Trend by Avg Trip Cost",
+SELECTEDVALUE(Parameter[Value4]) = "Avg Fare per KM","Trend by Avg Fare per KM"
+)
