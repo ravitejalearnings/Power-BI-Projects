@@ -1,0 +1,5 @@
+min_max_revenue_monthly = 
+var maximum = MAXX(ALL(dim_date[month_name],dim_date[Month]),[revenue])
+var minimum = MINX(ALL(dim_date[month_name],dim_date[Month]),[revenue])
+var logic = if(maximum = [revenue], "Green", if(minimum = [revenue],"Red","#eedf98"))
+return logic
